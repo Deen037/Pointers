@@ -1,0 +1,76 @@
+.App {
+  color: #aaaca1;
+  background-color: #050507;
+}
+
+#headerLink > h1,
+#middleboxrightmargin>h4,
+#middleboxrightmargin>h5 {
+  margin: 7px 5px 5px 5px;
+  color: #5ea9be;
+}
+
+.headerBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #050507;
+  display: flex;
+  border-bottom: 1px solid #7c8685;
+  height: 50px;
+}
+
+#headerLink {
+  width: 17%;
+  display: flex;
+  color: #5ea9be;
+}
+
+#headerlogo {
+  height: 35px;
+  width: 35px;
+  margin: 7px 5px 5px 20px;
+  background-color: #5ea9be;
+}
+
+.headerRightSideBox {
+  width: 83%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#middlebox {
+  margin-top: 50px;
+  display: flex;
+  height: 100vh;
+}
+
+#middleboxright {
+  width: 100%;
+  background-image: linear-gradient(135deg, #050507, #362e2d);
+}
+
+#middleboxrightmargin {
+  padding-left: 5%;
+  padding-top: 5%;
+  width: 80%;
+  height: 90%;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #050507;
+  border-top: 1px solid #7c8685;
+  box-shadow: 0 0 1rem 0 #5ea9be;
+}
+
+#footerboxmargin {
+  text-align: end;
+  margin: 1% 1% 1% 1%;
+}
+

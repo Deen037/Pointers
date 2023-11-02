@@ -1,0 +1,34 @@
+.icon{
+    height: 20px;
+    margin-left: 20px;
+    margin-bottom: -3px;
+}
+
+.link {
+    text-decoration: none;
+    color: #aaaca1;
+    cursor: pointer;
+    margin-left: -15px;
+}
+
+.menu {
+    margin: 0 0 20px 0;
+}
+
+.link:hover {
+    color: #5ea9be;
+    font-size: 15px;
+}
+.menu:hover {
+    color: #5ea9be;
+}
+
+.middle-box-left {
+    width: 240px;
+    border-right: 1px solid #7c8685;
+    height: 100%;
+}
+
+.middle-box-left-margin {
+    margin: 10% 3% 3% 3%;
+}

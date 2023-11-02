@@ -1,0 +1,18 @@
+span{
+    font-size: 12px;
+    padding: 3px;
+    color: #050507;
+}
+
+.input:hover ~ span{
+    color: #aaaca1;
+    transition: 1.0s;
+}
+
+.Login{
+    display: none;
+}
+
+.registerErr{
+    color: red;
+}

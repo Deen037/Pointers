@@ -1,0 +1,123 @@
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(54, 46, 45, 0.8);
+    backdrop-filter: blur(2px);
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto auto;
+    background-color: #050507;
+    padding-bottom: 30px;
+    width: 500px;
+    border-radius: 10px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.text {
+    color: #5ea9be;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.underline {
+    width: 100px;
+    height: 5px;
+    background-color: #5ea9be;
+    border-radius: 9px;
+}
+
+.inputs {
+    margin-top: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 380px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #050507 inset;
+    -webkit-text-fill-color: #fff;
+}
+
+.icon {
+    margin: 0 30px;
+}
+
+.input input {
+    height: 50px;
+    width: 400px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 19px;
+}
+
+.forgot-password, .want-to-register {
+    font-size: 15px;
+}
+
+
+.forgot-password span, .want-to-register span {
+    color: #5ea9be;
+    cursor: pointer;
+}
+
+.submit-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px auto;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 170px;
+    height: 40px;
+    color: #050507;
+    background-color: #5ea9be;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+button {
+    border: none;
+    background-color: inherit;
+    color: inherit;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 700;
+}
+

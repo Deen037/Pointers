@@ -1,0 +1,73 @@
+#create-event-top {
+  position: relative;
+  display: flex;
+}
+
+#create-event-left > form {
+  position: relative;
+  display: grid;
+  align-items: center;
+  width: 300px;
+  border-radius: 2px;
+}
+
+#create-event-left > form > input {
+  height: 20px;
+  margin: 5px;
+  background-color: #aaaca1;
+  color: #050507;
+  border: none;
+  border-radius: 2px;
+}
+
+::placeholder {
+  color: #362e2d;
+}
+
+#create-event-left > form > input[type="date"]::placeholder {
+  color: #050507;
+}
+
+#create-event-left > form > input:focus {
+  outline: none;
+  background-color: #5ea9be;
+}
+
+#create-event-right {
+  padding-left: 20px;
+}
+
+#create-event-right > div {
+  position: relative;
+  display: flex;
+}
+
+#p-style-button {
+  padding-left: 5px;
+}
+
+#category-btns > button,
+#vs-btns > button {
+  background-color: #aaaca1;
+  color: #050507;
+  border: none;
+  border-radius: 2px;
+}
+
+#category-btns > button:active,
+#vs-btns > button:active {
+  background-color: #5ea9be;
+}
+
+#create-event > button,
+#enter-link-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #5ea9be;
+  height: 50px;
+  width: 100px;
+  margin: 100px;
+  border: none;
+  border-radius: 2px;
+}

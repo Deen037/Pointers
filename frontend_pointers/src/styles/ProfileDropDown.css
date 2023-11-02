@@ -1,0 +1,105 @@
+.menu-trigger img {
+    position: absolute;
+    top: 5px;
+    right: 40px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+
+.menu-trigger img:hover,
+.menu-trigger.active img {
+    opacity: 0.7;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background-color: #050507;
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: 200px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: 30px;
+    height: 20px;
+    width: 20px;
+    background: #050507;
+    transform: rotate(45deg);
+}
+
+.dropdown-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: all 0.5s ease;
+}
+
+.dropdown-menu.inactive {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.5s ease;
+}
+
+.ul p{
+    text-align: center;
+}
+
+.crew{
+    opacity : 0.5;
+    margin-bottom: 30px;
+}
+
+.dropdown-item {
+    margin-bottom: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgb(54, 46, 45, 0.3);
+}
+
+
+.dropdown-item:hover{
+    opacity: 1 !important; ;
+    color: #5ea9be;
+    cursor: pointer;
+}
+
+.dropdown-item .icon{
+    padding-left: 20px;
+}
+
+.icon {
+    opacity: 0.5;
+}
+
+.userIcon {
+    position: absolute;
+    top: 5px;
+    right: 40px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #362e2d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nickname {
+    font-size: 15px;
+}
+
