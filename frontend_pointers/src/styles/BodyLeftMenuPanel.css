@@ -15,7 +15,7 @@
     margin: 0 0 20px 0;
 }
 
-.link:hover {
+.link:hover, .active {
     color: #5ea9be;
     font-size: 15px;
 }

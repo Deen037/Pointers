@@ -1,10 +1,10 @@
 import "./styles/App.css";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {useState} from "react";
-import Header from "./components/Header.js";
-import Body from "./components/Body";
-import Footer from "./components/Footer";
-import Judge from "./components/body/rightPanel/Judge";
+import Header from "./components/common/Header.js";
+import Body from "./components/common/Body";
+import Footer from "./components/common/Footer";
+import Judge from "./components/judges/Judge";
 
 function App() {
     const [onJudge, setOnJudge] = useState("DBL3-7-1985Pitkin");

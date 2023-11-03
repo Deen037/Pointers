@@ -1,7 +1,7 @@
-import React, {useState} from "react";
-import logo from "../img/logo.png";
+import React from "react";
+import logo from "../../assets/images/logo.png";
 import {Link} from "react-router-dom";
-import Profile from "./header/Profile";
+import Profile from "../dancers/Profile";
 
 const Header = () => {
     return (

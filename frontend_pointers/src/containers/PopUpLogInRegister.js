@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {UserIcon, MailIcon, LockClosedIcon} from "@heroicons/react/outline";
-import "../../styles/PopUpLogInRegister.css";
+import "../styles/PopUpLogInRegister.css";
 import FormInput from "./FormInput";
 
 

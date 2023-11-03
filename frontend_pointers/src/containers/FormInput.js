@@ -1,4 +1,4 @@
-import "../../styles/FormInput.css"
+import "../styles/FormInput.css"
 
 const FormInput = (props) => {
     const {label, onChange, id, icon,errorMessageLogin,

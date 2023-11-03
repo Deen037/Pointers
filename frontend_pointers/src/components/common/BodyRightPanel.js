@@ -1,15 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import HomeAbout from "./rightPanel/HomeAbout";
-import Broadcast from "./rightPanel/Broadcast";
-import ErrorPage from "./rightPanel/ErrorPage";
-import CreateEvent from "./rightPanel/CreateEvent";
-import MyEvents from "./rightPanel/MyEvents";
-import MyEvent from "./rightPanel/MyEvent";
-import Timeline from "./rightPanel/Timeline";
-import ProfileSettings from "../header/ProfileDropDown/ProfileSettings";
-import {useState} from "react";
+import HomeAbout from "../../pages/HomeAbout";
+import Broadcast from "../../pages/Broadcast";
+import ErrorPage from "../../pages/ErrorPage";
+import CreateEvent from "../events/CreateEvent";
+import MyEvents from "../events/MyEvents";
+import MyEvent from "../events/MyEvent";
+import Timeline from "../../pages/Timeline";
 
-const RightPanel = ({ judgePage }) => {
+const BodyRightPanel = ({ judgePage }) => {
   const exampleEvent = {
     eventName: "DBL",
     eventSpot: "BDS academy",
@@ -18,8 +16,6 @@ const RightPanel = ({ judgePage }) => {
     eventVs: "Crew vs Crew",
     eventStyle: "Allstyle",
   };
-
-const [loggedDancerEmail, setLoggedDancerEmail] = useState("");
 
   return (
     <div id="middleboxright">
@@ -41,11 +37,10 @@ const [loggedDancerEmail, setLoggedDancerEmail] = useState("");
             <MyEvent exampleEvent={exampleEvent} judgePage={judgePage} />
           }
         />
-        {/*<Route path={"/profileSettings/"+loggedDancerEmail} element={<ProfileSettings setLoggedDancerEmail={setLoggedDancerEmail()}/>} />*/}
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
     </div>
   );
 };
 
-export default RightPanel;
+export default BodyRightPanel;
