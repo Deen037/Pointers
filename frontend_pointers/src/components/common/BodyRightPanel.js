@@ -6,16 +6,9 @@ import CreateEvent from "../events/CreateEvent";
 import MyEvents from "../events/MyEvents";
 import MyEvent from "../events/MyEvent";
 import Timeline from "../../pages/Timeline";
+import {exampleEvent} from "../../assets/data";
 
 const BodyRightPanel = ({ judgePage }) => {
-  const exampleEvent = {
-    eventName: "DBL",
-    eventSpot: "BDS academy",
-    eventDate: "3-7-1985",
-    eventOrganizer: "De la Čučimír",
-    eventVs: "Crew vs Crew",
-    eventStyle: "Allstyle",
-  };
 
   return (
     <div id="middleboxright">

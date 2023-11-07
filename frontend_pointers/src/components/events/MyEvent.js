@@ -1,22 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { judgesNamesExample } from "../../assets/data";
 
 function MyEvent({ exampleEvent, judgePage }) {
   const currentEvent = exampleEvent;
   const [enter, setEnter] = useState(false);
   const [judgesObject, setJudgesObject] = useState([]);
 
-  let judgesNamesExample = [
-    "Wahe",
-    "Andyboj",
-    "Pitkin",
-    "Potkis",
-    "Endrewstyle",
-    "Miro",
-    "Mula",
-    "Mathew",
-  ];
 
   const opt = (e) => {
     e.preventDefault();

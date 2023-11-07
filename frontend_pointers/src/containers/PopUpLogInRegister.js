@@ -2,12 +2,14 @@ import {useEffect, useState} from "react";
 import {UserIcon, MailIcon, LockClosedIcon} from "@heroicons/react/outline";
 import "../styles/PopUpLogInRegister.css";
 import FormInput from "./FormInput";
+import useAuth from "../services/useAuth";
 
 
 function PopUpLogInRegister({setDisplayPopUp, setIsLogged, setDancer}) {
-    const [action, setAction] = useState("Login")
-    const [loginResponse, setLoginResponse] = useState(true);
-    const [registerResponse, setRegisterResponse] = useState("");
+    const [action, setAction] = useState("Login");
+    const {loginResponse, registerResponse, loginDancer, registerDancer} = useAuth();
+    // const [loginResponse, setLoginResponse] = useState(true);
+    // const [registerResponse, setRegisterResponse] = useState("");
     const [loginValues, setLoginValues] = useState({
         username: "",
         email: "",
@@ -62,67 +64,63 @@ function PopUpLogInRegister({setDisplayPopUp, setIsLogged, setDancer}) {
     }
 
     function onChange(e) {
-        setLoginValues({...loginValues, [e.target.name]: e.target.value});
-        setRegisterValues({...registerValues, [e.target.name]: e.target.value});
+        if (action === "Login") {
+            setLoginValues(prev => ({ ...prev, [e.target.name]: e.target.value }));
+        } else {
+            setRegisterValues(prev => ({ ...prev, [e.target.name]: e.target.value }));
+        }
     }
 
 
     // REST
 
-    const url = "http://localhost:8080/dancers";
 
-    function loginDancer() {
-        fetch(`${url}/login`, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(loginValues),
-        }).then(response => {
-                if (!response.ok) {
-                    setLoginResponse(false);
-                }
-                return response.json()
-            }
-        ).then(data => {
-            setIsLogged(true);
-            setDisplayPopUp(false)
-            setLoginResponse(true);
-            setDancer(data);
-        }).catch((error) => {
-            console.log(error);
-        })
-    }
 
-    const registerDancer = () => {
-        fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(registerValues)
-        }).then((res) => {
-            if (!res.ok) {
-                setRegisterResponse(false);
-            } else {
-                // setIsLogged(true);
-                setDisplayPopUp(false);
-                loginDancer();
-            }
-        }).catch(err => {
-            console.log(err)
-        });
-    }
+    // function loginDancer() {
+    //     fetch(`${url}/login`, {
+    //         method: "POST",
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify(loginValues),
+    //     }).then(response => {
+    //             if (!response.ok) {
+    //                 setLoginResponse(false);
+    //             }
+    //             return response.json()
+    //         }
+    //     ).then(data => {
+    //         setIsLogged(true);
+    //         setDisplayPopUp(false)
+    //         setLoginResponse(true);
+    //         setDancer(data);
+    //     }).catch((error) => {
+    //         console.log(error);
+    //     })
+    // }
+
+    // const registerDancer = () => {
+    //     fetch(url, {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify(registerValues)
+    //     }).then((res) => {
+    //         if (!res.ok) {
+    //             setRegisterResponse(false);
+    //         } else {
+    //             // setIsLogged(true);
+    //             setDisplayPopUp(false);
+    //             loginDancer();
+    //         }
+    //     }).catch(err => {
+    //         console.log(err)
+    //     });
+    // }
 
 
     // BUTTONS
-    function loginBtn() {
-        loginDancer();
-    }
-
-    function registerBtn() {
-        registerDancer();
-    }
 
     function showRegisterForm() {
         setAction("Register");
@@ -146,15 +144,18 @@ function PopUpLogInRegister({setDisplayPopUp, setIsLogged, setDancer}) {
                     <div className="text">{action}</div>
                     <div className="underline"></div>
                 </div>
+
+
                 {action === "Login" ? (
+                    // Login form
                     <form onSubmit={handleSubmit} className="inputs">
-                        {inputs.map((input) => (
+                        {inputs.filter(input => input.name !== 'username').map((input) => (
                             <FormInput key={input.id} {...input} value={loginValues[input.name]} onChange={onChange}/>
                         ))}
                         <div className="forgot-password">Lost Password? <span>Click Here!</span></div>
                         <div className="submit-container">
                             <div className="submit"
-                                 onClick={loginBtn}>
+                                 onClick={loginDancer}>
                                 <button>Login</button>
                             </div>
                         </div>
@@ -168,7 +169,7 @@ function PopUpLogInRegister({setDisplayPopUp, setIsLogged, setDancer}) {
                         ))}
                         <div className="submit-container">
                             <div className="submit"
-                                 onClick={registerBtn}
+                                 onClick={registerDancer}
                             >
                                 <button>Register</button>
                             </div>
