@@ -5,7 +5,7 @@ import FormInput from "./FormInput";
 import useAuth from "../services/useAuth";
 
 
-function PopupLoginRegister({setDisplayPopUp, setIsLogged, setDancer}) {
+function PopupLoginRegister({setDisplayPopup, setIsLogged, setDancer}) {
     const [action, setAction] = useState("Login");
     const {loginResponse, registerResponse, loginDancer, registerDancer} = useAuth();
     const [loginValues, setLoginValues] = useState({
@@ -60,9 +60,9 @@ function PopupLoginRegister({setDisplayPopUp, setIsLogged, setDancer}) {
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         if (action === "Login") {
-            loginDancer(loginValues, setIsLogged, setDancer, setDisplayPopUp); // Call the login function from your auth service
+            loginDancer(loginValues, setIsLogged, setDancer, setDisplayPopup); // Call the login function from your auth service
         } else {
-            registerDancer(registerValues, setIsLogged, setDisplayPopUp); // Similarly, you would have a function for registration
+            registerDancer(registerValues, setIsLogged, setDisplayPopup); // Similarly, you would have a function for registration
         }
     }
 
@@ -85,7 +85,7 @@ function PopupLoginRegister({setDisplayPopUp, setIsLogged, setDancer}) {
     useEffect(() => {
         let handler = (e) => {
             if (!e.target.closest('.container')) {
-                setDisplayPopUp(false);
+                setDisplayPopup(false);
             }
         }
         document.addEventListener('mousedown', handler);
@@ -111,7 +111,7 @@ function PopupLoginRegister({setDisplayPopUp, setIsLogged, setDancer}) {
                             <div className="submit"
                                  onClick={(e) => {
                                      e.preventDefault();
-                                     loginDancer(loginValues, setIsLogged, setDancer, setDisplayPopUp);
+                                     loginDancer(loginValues, setIsLogged, setDancer, setDisplayPopup);
                                  }}>
                                 <button>Login</button>
                             </div>
@@ -128,7 +128,7 @@ function PopupLoginRegister({setDisplayPopUp, setIsLogged, setDancer}) {
                             <div className="submit"
                                  onClick={(e) => {
                                         e.preventDefault();
-                                        registerDancer(registerValues, setIsLogged, setDisplayPopUp);
+                                        registerDancer(registerValues, setIsLogged, setDisplayPopup);
                                  }}
                             >
                                 <button>Register</button>

@@ -1,10 +1,10 @@
 import {useState} from "react";
 import ProfileDropdown from "../common/ProfileDropdown";
-import PopUpLogInRegister from "../../containers/PopUpLogInRegister";
+import PopUpLogInRegister from "../../containers/PopupLoginRegister";
 
 function Profile() {
     const [isLogged, setIsLogged] = useState();
-    const [displayPopUp, setDisplayPopUp] = useState(false);
+    const [displayPopup, setDisplayPopup] = useState(false);
     const [dancer, setDancer] = useState({
         country: "",
         email: "",
@@ -26,13 +26,13 @@ function Profile() {
 
     return (
         <div>
-            {displayPopUp ?
-                <PopUpLogInRegister setDisplayPopUp={setDisplayPopUp}
+            {displayPopup ?
+                <PopUpLogInRegister setDisplayPopUp={setDisplayPopup}
                                     setIsLogged={setIsLogged}
                                     setDancer={setDancer}/> :
                 <ProfileDropdown isLogged={isLogged}
                                  setIsLogged={setIsLogged}
-                                 setDisplayPopUp={setDisplayPopUp}
+                                 setDisplayPopUp={setDisplayPopup}
                                  dancer={dancer}/>}
         </div>
     )
