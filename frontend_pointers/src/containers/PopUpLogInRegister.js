@@ -5,11 +5,9 @@ import FormInput from "./FormInput";
 import useAuth from "../services/useAuth";
 
 
-function PopUpLogInRegister({setDisplayPopUp, setIsLogged, setDancer}) {
+function PopupLoginRegister({setDisplayPopUp, setIsLogged, setDancer}) {
     const [action, setAction] = useState("Login");
     const {loginResponse, registerResponse, loginDancer, registerDancer} = useAuth();
-    // const [loginResponse, setLoginResponse] = useState(true);
-    // const [registerResponse, setRegisterResponse] = useState("");
     const [loginValues, setLoginValues] = useState({
         username: "",
         email: "",
@@ -59,8 +57,13 @@ function PopUpLogInRegister({setDisplayPopUp, setIsLogged, setDancer}) {
         }
     ]
 
-    function handleSubmit(e) {
+    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
+        if (action === "Login") {
+            loginDancer(loginValues, setIsLogged, setDancer, setDisplayPopUp); // Call the login function from your auth service
+        } else {
+            registerDancer(registerValues, setIsLogged, setDisplayPopUp); // Similarly, you would have a function for registration
+        }
     }
 
     function onChange(e) {
@@ -70,55 +73,6 @@ function PopUpLogInRegister({setDisplayPopUp, setIsLogged, setDancer}) {
             setRegisterValues(prev => ({ ...prev, [e.target.name]: e.target.value }));
         }
     }
-
-
-    // REST
-
-
-
-    // function loginDancer() {
-    //     fetch(`${url}/login`, {
-    //         method: "POST",
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify(loginValues),
-    //     }).then(response => {
-    //             if (!response.ok) {
-    //                 setLoginResponse(false);
-    //             }
-    //             return response.json()
-    //         }
-    //     ).then(data => {
-    //         setIsLogged(true);
-    //         setDisplayPopUp(false)
-    //         setLoginResponse(true);
-    //         setDancer(data);
-    //     }).catch((error) => {
-    //         console.log(error);
-    //     })
-    // }
-
-    // const registerDancer = () => {
-    //     fetch(url, {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(registerValues)
-    //     }).then((res) => {
-    //         if (!res.ok) {
-    //             setRegisterResponse(false);
-    //         } else {
-    //             // setIsLogged(true);
-    //             setDisplayPopUp(false);
-    //             loginDancer();
-    //         }
-    //     }).catch(err => {
-    //         console.log(err)
-    //     });
-    // }
-
 
     // BUTTONS
 
@@ -155,7 +109,10 @@ function PopUpLogInRegister({setDisplayPopUp, setIsLogged, setDancer}) {
                         <div className="forgot-password">Lost Password? <span>Click Here!</span></div>
                         <div className="submit-container">
                             <div className="submit"
-                                 onClick={loginDancer}>
+                                 onClick={(e) => {
+                                     e.preventDefault();
+                                     loginDancer(loginValues, setIsLogged, setDancer, setDisplayPopUp);
+                                 }}>
                                 <button>Login</button>
                             </div>
                         </div>
@@ -169,7 +126,10 @@ function PopUpLogInRegister({setDisplayPopUp, setIsLogged, setDancer}) {
                         ))}
                         <div className="submit-container">
                             <div className="submit"
-                                 onClick={registerDancer}
+                                 onClick={(e) => {
+                                        e.preventDefault();
+                                        registerDancer(registerValues, setIsLogged, setDisplayPopUp);
+                                 }}
                             >
                                 <button>Register</button>
                             </div>
@@ -180,4 +140,4 @@ function PopUpLogInRegister({setDisplayPopUp, setIsLogged, setDancer}) {
     )
 }
 
-export default PopUpLogInRegister;
+export default PopupLoginRegister;

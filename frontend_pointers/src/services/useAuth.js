@@ -5,7 +5,7 @@ function useAuth() {
     const [registerResponse, setRegisterResponse] = useState(true);
 
     const url = "http://localhost:8080/dancers";
-    const loginDancer = (loginValues, setIsLogged, setDancer) => {
+    const loginDancer = (loginValues, setIsLogged, setDancer, setDisplayPopup) => {
 
         fetch(`${url}/login`, {
           method: "POST",
@@ -17,6 +17,7 @@ function useAuth() {
           .then((response) => {
             if (!response.ok) {
               setLoginResponse(false);
+              console.log(response);
             }
             return response.json();
           })
@@ -24,6 +25,7 @@ function useAuth() {
             setIsLogged(true);
             setLoginResponse(true);
             setDancer(data);
+            setDisplayPopup(false);
           })
           .catch((error) => {
             console.log(error);
