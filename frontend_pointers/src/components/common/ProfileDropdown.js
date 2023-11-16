@@ -52,17 +52,21 @@ function ProfileDropdown({ setIsLogged, isLogged, setDisplayPopup, dancer, setDa
                     <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
                         <div className="ul">
                             <p className="nickname">{dancer.username}</p>
-                            <p className="crew">{dancer.crew? dancer.crew.map(crew => <span>| {crew.name} |</span>) : ""}</p>
-                            <Link to={`/profile/${dancer.email}`}></Link>
-                            <DropdownRow img={<UserIcon className="icon" />} text="Profile" />
-                            <Link to={`/settings/`} className="link">
-                                <DropdownRow img={<CogIcon className="icon" />} text="Settings" />
+                            <p className="crew">{dancer.crew.map(crew => <span>| {crew.name} |</span>)}</p>
+                            <Link to={`/profile/${dancer.email}`} className="link">
+                                <DropdownRow img={<UserIcon className="icon drop" />} text="Profile" />
                             </Link>
-                            <DropdownRow
-                                img={<LogoutIcon className="icon" />}
-                                text="Log out"
-                                onClick={logout}
-                            />
+                            <Link to={`/settings/`} className="link">
+                                <DropdownRow img={<CogIcon className="icon drop" />} text="Settings" />
+                            </Link>
+                            <Link to={"/"} className={`link`}>
+                                <DropdownRow
+                                    img={<LogoutIcon className="icon drop" />}
+                                    text="Logout"
+                                    onClick={logout}
+                                />
+                            </Link>
+
                         </div>
                     </div>
                 </>
@@ -78,7 +82,7 @@ function ProfileDropdown({ setIsLogged, isLogged, setDisplayPopup, dancer, setDa
 
 function DropdownRow({ img, text, onClick }) {
     return (
-        <div className="dropdown-item" onClick={onClick}>
+        <div className={`dropdown-item ${text}`} onClick={onClick}>
             {img}
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <p>{text}</p>

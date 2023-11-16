@@ -46,7 +46,6 @@
 .dropdown-item {
     display: flex;
     align-items: center;
-    justify-content: center;
     margin-bottom: 20px;
     padding-top: 20px;
     border-top: 1px solid rgb(54, 46, 45, 0.3);
@@ -89,4 +88,14 @@
 .crew span {
     color: #7c8685;
 }
+
+.dropdown-item.Profile,
+.dropdown-item.Settings{
+    margin-bottom: -0px;
+}
+
+.icon.drop{
+    margin-left: 40px;
+}
+
 
