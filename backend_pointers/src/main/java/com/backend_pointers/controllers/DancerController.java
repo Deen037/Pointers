@@ -43,7 +43,7 @@ public class DancerController{
         if(found.isEmpty()){
             return ResponseEntity.badRequest().body("Dancer not found");
         }
-        if (encoder.matches(found.get().getPassword(),dancer.getPassword())) {
+        if (!encoder.matches(dancer.getPassword(),found.get().getPassword())) {
             return ResponseEntity.badRequest().body("Wrong password");
         }
         DancerDTO dancerDTO = new DancerDTO(found.get());
