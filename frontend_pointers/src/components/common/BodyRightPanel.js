@@ -7,6 +7,7 @@ import MyEvents from "../events/MyEvents";
 import MyEvent from "../events/MyEvent";
 import Timeline from "../../pages/Timeline";
 import {exampleEvent} from "../../assets/data";
+import ProfileSettings from "../dancers/ProfileSettings";
 
 const BodyRightPanel = ({ judgePage }) => {
 
@@ -32,7 +33,7 @@ const BodyRightPanel = ({ judgePage }) => {
         />
         <Route
           path={`/settings`}
-          element={<div>Settings page</div>} />
+          element={<ProfileSettings/>} />
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
     </div>
