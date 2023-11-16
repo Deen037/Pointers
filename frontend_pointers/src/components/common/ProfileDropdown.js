@@ -52,6 +52,7 @@ function ProfileDropdown({ setIsLogged, isLogged, setDisplayPopup, dancer, setDa
                     <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
                         <div className="ul">
                             <p className="nickname">{dancer.username}</p>
+                            <p className="crew">{dancer.crew? dancer.crew.map(crew => <span>| {crew.name} |</span>) : ""}</p>
                             <Link to={`/profile/${dancer.email}`}></Link>
                             <DropdownRow img={<UserIcon className="icon" />} text="Profile" />
                             <Link to={`/settings/`} className="link">

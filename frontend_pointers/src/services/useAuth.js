@@ -17,7 +17,6 @@ function useAuth() {
           .then((response) => {
             if (!response.ok) {
               setLoginResponse(false);
-              console.log(response);
             }
             return response.json();
           })

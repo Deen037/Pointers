@@ -82,7 +82,11 @@
     align-items: center;
 }
 
-.nickname {
+.nickname{
     font-size: 15px;
+}
+
+.crew span {
+    color: #7c8685;
 }
 
