@@ -30,6 +30,9 @@ const BodyRightPanel = ({ judgePage }) => {
             <MyEvent exampleEvent={exampleEvent} judgePage={judgePage} />
           }
         />
+        <Route
+          path={`/settings`}
+          element={<div>Settings page</div>} />
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
     </div>
