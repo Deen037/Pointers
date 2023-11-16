@@ -5,16 +5,11 @@ import FormInput from "./FormInput";
 import useAuth from "../services/useAuth";
 
 
-function PopupLoginRegister({setDisplayPopup,isLogged, setIsLogged, setDancer}) {
+function PopupLoginRegister({setDisplayPopup, isLogged, setIsLogged, setDancer}) {
     const [action, setAction] = useState("Login");
     const {loginResponse, registerResponse, loginDancer, registerDancer} = useAuth();
     const [loginValues, setLoginValues] = useState({
         username: "",
-        email: "",
-        password: ""
-    });
-
-    const [registerValues, setRegisterValues] = useState({
         email: "",
         password: ""
     });
@@ -62,16 +57,12 @@ function PopupLoginRegister({setDisplayPopup,isLogged, setIsLogged, setDancer}) 
         if (action === "Login") {
             loginDancer(loginValues, setIsLogged, setDancer, setDisplayPopup); // Call the login function from your auth service
         } else {
-            registerDancer(registerValues, setIsLogged, setDisplayPopup); // Similarly, you would have a function for registration
+            registerDancer(loginValues, setIsLogged, setDisplayPopup); // Similarly, you would have a function for registration
         }
     }
 
     function onChange(e) {
-        if (action === "Login") {
             setLoginValues(prev => ({ ...prev, [e.target.name]: e.target.value }));
-        } else {
-            setRegisterValues(prev => ({ ...prev, [e.target.name]: e.target.value }));
-        }
     }
 
     // BUTTONS
@@ -123,14 +114,14 @@ function PopupLoginRegister({setDisplayPopup,isLogged, setIsLogged, setDancer}) 
                     </form>) : (
                     <form onSubmit={handleSubmit} className="inputs">
                         {inputs.map((input) => (
-                            <FormInput key={input.id} {...input} value={registerValues[input.name]}
+                            <FormInput key={input.id} {...input} value={loginValues[input.name]}
                                        onChange={onChange}/>
                         ))}
                         <div className="submit-container">
                             <div className="submit"
                                  onClick={(e) => {
                                         e.preventDefault();
-                                        registerDancer(registerValues, setIsLogged, setDisplayPopup);
+                                        registerDancer(loginValues, setIsLogged, setDisplayPopup);
                                  }}
                             >
                                 <button>Register</button>

@@ -32,14 +32,14 @@ function useAuth() {
           });
     };
 
-    const registerDancer = (registerValues, setIsLogged, setDisplayPopUp) => {
+    const registerDancer = (loginValues, setIsLogged, setDisplayPopUp) => {
 
-        fetch(url, {
+        fetch(`${url}/register`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(registerValues),
+          body: JSON.stringify(loginValues),
         })
           .then((res) => {
             if (!res.ok) {
