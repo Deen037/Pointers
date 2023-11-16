@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import "../../styles/ProfileDropDown.css";
 import { CogIcon, LogoutIcon, UserIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
+import {emptyDancer} from "../../assets/data";
 
-function ProfileDropdown({ setIsLogged, isLogged, setDisplayPopup, dancer }) {
+function ProfileDropdown({ setIsLogged, isLogged, setDisplayPopup, dancer, setDancer }) {
     const [open, setOpen] = useState(false);
 
     function logout() {
         setIsLogged(false);
+        setDancer(emptyDancer);
     }
 
     useEffect(() => {
@@ -16,7 +18,6 @@ function ProfileDropdown({ setIsLogged, isLogged, setDisplayPopup, dancer }) {
                 setOpen(false);
             }
         }
-
         document.addEventListener("mousedown", handleOutsideClick);
 
         return () => {

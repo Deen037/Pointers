@@ -57,7 +57,7 @@ function PopupLoginRegister({setDisplayPopup, isLogged, setIsLogged, setDancer})
         if (action === "Login") {
             loginDancer(loginValues, setIsLogged, setDancer, setDisplayPopup); // Call the login function from your auth service
         } else {
-            registerDancer(loginValues, setIsLogged, setDisplayPopup); // Similarly, you would have a function for registration
+            registerDancer(loginValues, setIsLogged, setDisplayPopup, setDancer); // Similarly, you would have a function for registration
         }
     }
 
@@ -121,7 +121,7 @@ function PopupLoginRegister({setDisplayPopup, isLogged, setIsLogged, setDancer})
                             <div className="submit"
                                  onClick={(e) => {
                                         e.preventDefault();
-                                        registerDancer(loginValues, setIsLogged, setDisplayPopup);
+                                        registerDancer(loginValues, setIsLogged, setDisplayPopup, setDancer);
                                  }}
                             >
                                 <button>Register</button>

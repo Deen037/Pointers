@@ -32,7 +32,7 @@ function useAuth() {
           });
     };
 
-    const registerDancer = (loginValues, setIsLogged, setDisplayPopUp) => {
+    const registerDancer = (loginValues, setIsLogged, setDisplayPopUp, setDancer) => {
 
         fetch(`${url}/register`, {
           method: "POST",
@@ -47,6 +47,7 @@ function useAuth() {
             } else {
               setIsLogged(true);
               setDisplayPopUp(false);
+              setDancer(loginValues)
             }
           })
           .catch((err) => {

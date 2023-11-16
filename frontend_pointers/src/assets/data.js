@@ -18,4 +18,22 @@ const exampleEvent = {
     eventStyle: "Allstyle",
 };
 
-export { exampleEvent, judgesNamesExample };
+const emptyDancer = {
+    country: "",
+    email: "",
+    firstName: "",
+    lastName: "",
+    username: "",
+    role: "",
+    photo: "",
+    crew: [
+        {
+            city: "",
+            country: "",
+            id: "",
+            name: "",
+        }
+    ]
+}
+
+export { exampleEvent, judgesNamesExample, emptyDancer };
