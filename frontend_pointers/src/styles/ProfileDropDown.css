@@ -25,21 +25,6 @@
     width: 200px;
 }
 
-a{
-    text-decoration: none;
-}
-
-.dropdown-menu::before {
-    content: '';
-    position: absolute;
-    top: -5px;
-    right: 30px;
-    height: 20px;
-    width: 20px;
-    background: #050507;
-    transform: rotate(45deg);
-}
-
 .dropdown-menu.active {
     opacity: 1;
     visibility: visible;
@@ -58,12 +43,10 @@ a{
     text-align: center;
 }
 
-.crew{
-    opacity : 0.5;
-    margin-bottom: 30px;
-}
-
 .dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 20px;
     padding-top: 20px;
     border-top: 1px solid rgb(54, 46, 45, 0.3);
@@ -77,7 +60,7 @@ a{
 }
 
 .dropdown-item .icon{
-    padding-left: 20px;
+    margin-left: -20px;
 }
 
 .icon {

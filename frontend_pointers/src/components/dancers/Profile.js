@@ -27,12 +27,13 @@ function Profile() {
     return (
         <div>
             {displayPopup ?
-                <PopUpLogInRegister setDisplayPopUp={setDisplayPopup}
+                <PopUpLogInRegister setDisplayPopup={setDisplayPopup}
+                                    isLogged={isLogged}
                                     setIsLogged={setIsLogged}
                                     setDancer={setDancer}/> :
                 <ProfileDropdown isLogged={isLogged}
                                  setIsLogged={setIsLogged}
-                                 setDisplayPopUp={setDisplayPopup}
+                                 setDisplayPopup={setDisplayPopup}
                                  dancer={dancer}/>}
         </div>
     )

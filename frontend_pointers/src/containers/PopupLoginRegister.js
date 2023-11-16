@@ -5,7 +5,7 @@ import FormInput from "./FormInput";
 import useAuth from "../services/useAuth";
 
 
-function PopupLoginRegister({setDisplayPopup, setIsLogged, setDancer}) {
+function PopupLoginRegister({setDisplayPopup,isLogged, setIsLogged, setDancer}) {
     const [action, setAction] = useState("Login");
     const {loginResponse, registerResponse, loginDancer, registerDancer} = useAuth();
     const [loginValues, setLoginValues] = useState({
@@ -84,8 +84,10 @@ function PopupLoginRegister({setDisplayPopup, setIsLogged, setDancer}) {
     // CLOSE POPUP
     useEffect(() => {
         let handler = (e) => {
-            if (!e.target.closest('.container')) {
-                setDisplayPopup(false);
+            if(!isLogged){
+                if (!e.target.closest('.container')) {
+                    setDisplayPopup(false);
+                }
             }
         }
         document.addEventListener('mousedown', handler);

@@ -3,7 +3,7 @@ import "../../styles/ProfileDropDown.css";
 import { CogIcon, LogoutIcon, UserIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 
-function ProfileDropdown({ setIsLogged, isLogged, setDisplayPopUp, dancer }) {
+function ProfileDropdown({ setIsLogged, isLogged, setDisplayPopup, dancer }) {
     const [open, setOpen] = useState(false);
 
     function logout() {
@@ -67,7 +67,7 @@ function ProfileDropdown({ setIsLogged, isLogged, setDisplayPopUp, dancer }) {
             ) : (
                 // User not logged in
                 <div className="userIcon">
-                    <UserIcon style={{ height: "27px" }} onClick={() => setDisplayPopUp(true)} />
+                    <UserIcon style={{ height: "27px" }} onClick={() => setDisplayPopup(true)} />
                 </div>
             )}
         </div>
@@ -79,7 +79,7 @@ function DropdownRow({ img, text, onClick }) {
         <div className="dropdown-item" onClick={onClick}>
             {img}
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a>{text}</a>
+            <p>{text}</p>
         </div>
     );
 }
