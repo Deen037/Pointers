@@ -1,4 +1,4 @@
-function ProfileSettings({setLoggedDancerEmail, dancerEmail}){
+function ProfileSettings(){
 
     return(
         <div>

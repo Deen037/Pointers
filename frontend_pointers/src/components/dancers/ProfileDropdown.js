@@ -58,7 +58,7 @@ function ProfileDropdown({dancer}) {
                                 <DropdownRow img={<UserIcon className="icon drop"/>}
                                              text="Profile"/>
                             </Link>
-                            <Link to={`/settings/`} className="link">
+                            <Link to={`/settings/${dancer.email}`} className="link">
                                 <DropdownRow img={<CogIcon className="icon drop"/>}
                                              text="Settings"/>
                             </Link>

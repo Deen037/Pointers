@@ -4,7 +4,8 @@ const initialState = {
     isAuthenticated: false,
     displayPopup: false,
     currentUser: {
-        photo: ""
+        photo: "",
+        crew: [],
     },
 };
 
@@ -18,7 +19,7 @@ const userSlice = createSlice({
             state.displayPopup = false;
         },
         logout(state) {
-            state.currentUser = {photo: ""};
+            state.currentUser = {photo: "", crew: []};
             state.isAuthenticated = false;
             state.displayPopup = false;
         },
