@@ -23,6 +23,7 @@ public class Dancer{
     @Email
     private String email;
     private String password;
+    private String photo;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     @JoinTable(

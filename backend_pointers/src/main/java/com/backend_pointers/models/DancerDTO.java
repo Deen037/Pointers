@@ -14,6 +14,7 @@ public class DancerDTO {
     private String username;
     private String country;
     private String email;
+    private String photo;
     private Set<Role> roles;
     private Set<Crew> crew ;
 
@@ -25,6 +26,7 @@ public class DancerDTO {
         this.email = dancer.getEmail();
         this.roles = dancer.getRoles();
         this.crew = dancer.getCrew();
+        this.photo = dancer.getPhoto();
     }
 
 }
