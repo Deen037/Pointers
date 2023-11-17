@@ -1,8 +1,11 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
-    user: null,
     isAuthenticated: false,
+    displayPopup: false,
+    currentUser: {
+        photo: ""
+    },
 };
 
 const userSlice = createSlice({
@@ -12,13 +15,22 @@ const userSlice = createSlice({
         login(state, action) {
             state.currentUser = action.payload;
             state.isAuthenticated = true;
+            state.displayPopup = false;
         },
-        logout: (state) => {
-            state.currentUser = null;
+        logout(state) {
+            state.currentUser = {photo: ""};
             state.isAuthenticated = false;
+            state.displayPopup = false;
+        },
+        togglePopup(state) {
+            state.displayPopup = !state.displayPopup;
         },
     },
-})
+});
 
-export const {login, logout} = userSlice.actions;
+export const {
+    login,
+    logout,
+    togglePopup
+} = userSlice.actions;
 export default userSlice.reducer;

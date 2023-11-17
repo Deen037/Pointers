@@ -6,5 +6,4 @@ function ProfileSettings({setLoggedDancerEmail, dancerEmail}){
         </div>
     )
 }
-
 export default ProfileSettings;
