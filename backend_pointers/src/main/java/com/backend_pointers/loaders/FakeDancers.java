@@ -62,6 +62,29 @@ public class FakeDancers implements CommandLineRunner {
         dancerService.save(BOTYJudge1);
         dancerService.save(BOTYJudge2);
         dancerService.save(BOTYJudge3);
+
+        Dancer Miro = new Dancer();
+        Miro.setFirstName("Miro");
+        Miro.setLastName("Olšavský");
+        Miro.setUsername("Miroslash");
+        Miro.setCountry("Slovakia");
+        Miro.setPassword("xxx");
+        Miro.setEmail("miro@gmail.com");
+        Miro.setBirthDate(java.sql.Date.valueOf("1978-08-28"));
+        Miro.setCity("Hrabušice");
+        Miro.setPhone("+421 911 123 456");
+        Miro.setPhoto("https://www.breakdanceprojectutrecht.nl/wp-content/uploads/2019/01/IMG_20190105_153319-1.jpg");
+        Miro.setAbout("Miro is a dancer, choreographer, teacher and promoter of breaking.");
+        Miro.setFacebook("https://www.facebook.com/miro.olsavsky");
+        Miro.setInstagram("https://www.instagram.com/miro_olsavsky/");
+        Miro.setYoutube("https://www.youtube.com/user/miroolsavsky");
+        Miro.setTwitter("https://twitter.com/miroolsavsky");
+        Miro.setTiktok("https://www.tiktok.com/@miroolsavsky");
+        Miro.setTwitch("https://www.twitch.tv/miroolsavsky");
+        Miro.setSpotify("https://open.spotify.com/artist/5Z9Z1Y5Y4X2X0Q4Z1Z1Z1Z");
+        Miro.setSoundcloud("https://soundcloud.com/miroolsavsky");
+        dancerService.save(Miro);
+
     }
 
     public Dancer createDancer(String firstName, String lastName, String username, String country, String password, String email) {
@@ -74,4 +97,5 @@ public class FakeDancers implements CommandLineRunner {
         dancer.setEmail(email);
         return dancer;
     }
+
 }
