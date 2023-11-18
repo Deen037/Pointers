@@ -15,7 +15,7 @@ const BodyRightPanel = ({judgePage}) => {
     const dancer = useSelector(state => state.user.currentUser);
 
     return (
-        <div id="middleboxright">
+        <div className="middleboxright">
             <Routes>
                 <Route path="/" element={<HomeAbout/>}/>
                 <Route path="/timeline" element={<Timeline/>}/>

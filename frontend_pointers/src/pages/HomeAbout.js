@@ -2,7 +2,7 @@ import React from "react";
 
 const HomeAbout = () => {
   return (
-    <div id="middleboxrightmargin">
+    <div className="middlebox-right-margin">
       <h4>About</h4>
       <p>
           Welcome to our platform designed exclusively for

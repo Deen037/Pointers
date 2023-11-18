@@ -4,10 +4,17 @@
 }
 
 #headerLink > h1,
-#middleboxrightmargin>h4,
-#middleboxrightmargin>h5 {
+.middlebox-right-margin>h4,
+.middlebox-right-margin>h5 {
   margin: 7px 5px 5px 5px;
   color: #5ea9be;
+}
+
+.middlebox-right-margin {
+  padding-left: 5%;
+  padding-top: 5%;
+  width: 80%;
+  height: 90%;
 }
 
 .headerBox {
@@ -41,23 +48,17 @@
   justify-content: flex-end;
 }
 
-#middlebox {
+.middlebox {
   margin-top: 50px;
   display: flex;
   height: 100vh;
 }
 
-#middleboxright {
+.middleboxright {
   width: 100%;
   background-image: linear-gradient(135deg, #050507, #362e2d);
 }
 
-#middleboxrightmargin {
-  padding-left: 5%;
-  padding-top: 5%;
-  width: 80%;
-  height: 90%;
-}
 
 footer {
   position: fixed;

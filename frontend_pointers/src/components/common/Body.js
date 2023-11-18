@@ -4,7 +4,7 @@ import BodyRightPanel from "./BodyRightPanel";
 
 const Body = ({ judgePage }) => {
   return (
-    <div id="middlebox">
+    <div className="middlebox">
       <BodyLeftMenuPanel />
       <BodyRightPanel judgePage={judgePage} />
     </div>
