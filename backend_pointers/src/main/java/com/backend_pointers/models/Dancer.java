@@ -25,6 +25,7 @@ public class Dancer{
     private String username;
     private String city;
     private String country;
+    private String nationality;
     private String phone;
     @Column(unique = true)
     @Email

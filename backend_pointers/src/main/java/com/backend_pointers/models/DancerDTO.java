@@ -1,7 +1,5 @@
 package com.backend_pointers.models;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -20,6 +18,7 @@ public class DancerDTO {
     private String username;
     private String city;
     private String country;
+    private String nationality;
     private String phone;
     private String email;
     private String photo;
@@ -44,6 +43,7 @@ public class DancerDTO {
         this.username = dancer.getUsername();
         this.city = dancer.getCity();
         this.country = dancer.getCountry();
+        this.nationality = dancer.getNationality();
         this.phone = dancer.getPhone();
         this.email = dancer.getEmail();
         this.photo = dancer.getPhoto();
