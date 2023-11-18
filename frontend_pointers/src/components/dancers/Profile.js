@@ -6,6 +6,7 @@ import {
     faYoutube, faTiktok, faSoundcloud, faTwitch,
     faSpotify
 } from '@fortawesome/free-brands-svg-icons';
+import React from "react";
 
 
 function Profile() {
@@ -13,45 +14,56 @@ function Profile() {
     return (
         <div className="profile-container">
             <div className="profile-header">
-                <h2>{dancer.username}</h2>
                 <div className={`socials`}>
                     <a href={dancer.instagram} target="_blank" rel="noopener noreferrer">
-                        <FontAwesomeIcon icon={faInstagram} />
+                        <FontAwesomeIcon icon={faInstagram}/>
                     </a>
                     <a href={dancer.tiktok} target="_blank" rel="noopener noreferrer">
-                        <FontAwesomeIcon icon={faTiktok} />
+                        <FontAwesomeIcon icon={faTiktok}/>
                     </a>
                     <a href={dancer.youtube} target="_blank" rel="noopener noreferrer">
-                        <FontAwesomeIcon icon={faYoutube} />
+                        <FontAwesomeIcon icon={faYoutube}/>
                     </a>
                     <a href={dancer.facebook} target="_blank" rel="noopener noreferrer">
-                        <FontAwesomeIcon icon={faFacebook} />
+                        <FontAwesomeIcon icon={faFacebook}/>
                     </a>
                     <a href={dancer.soundcloud} target="_blank" rel="noopener noreferrer">
-                        <FontAwesomeIcon icon={faSoundcloud} />
+                        <FontAwesomeIcon icon={faSoundcloud}/>
                     </a>
                     <a href={dancer.spotify} target="_blank" rel="noopener noreferrer">
-                        <FontAwesomeIcon icon={faSpotify} />
+                        <FontAwesomeIcon icon={faSpotify}/>
                     </a>
                     <a href={dancer.twitch} target="_blank" rel="noopener noreferrer">
-                        <FontAwesomeIcon icon={faTwitch} />
+                        <FontAwesomeIcon icon={faTwitch}/>
                     </a>
                     <a href={dancer.twitter} target="_blank" rel="noopener noreferrer">
-                        <FontAwesomeIcon icon={faTwitter} />
+                        <FontAwesomeIcon icon={faTwitter}/>
                     </a>
                 </div>
+
             </div>
 
-
-            <div className={`profile-inner`}>
+            <div className={`profile-body`}>
                 <div className={`profile`}>
                     <div className={`profile__image`}>
                         <img src="https://i.imgur.com/tyjxiCH.png" alt="profile"/>
                     </div>
                     <div className={`profile__info`}>
-                        <h2>{dancer.firstName} {dancer.lastName}</h2>
-                        <p>{dancer.email}</p>
+                        <h2>{dancer.username}</h2>
+                        <p>{dancer.firstName} {dancer.lastName}</p>
+                        {dancer.crew.map((crew, index) =>
+                            <p key={`${index}`}> {crew.name} </p>)}
+                        <p>{dancer.country}, {dancer.city}</p>
                     </div>
+                </div>
+                <div className={`about`}>
+                    <h2>About</h2>
+                    <p>{dancer.about}</p>
+                </div>
+                <div className={`events`}>
+                    <h2>Events</h2>
+                    {dancer.events.map((event, index) =>
+                        <p key={`${index}`}> {event.date} / {event.city} / {event.name} </p>)}
                 </div>
 
             </div>
