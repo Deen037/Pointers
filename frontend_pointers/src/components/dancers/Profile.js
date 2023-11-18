@@ -63,7 +63,11 @@ function Profile() {
                 <div className={`events`}>
                     <h2>Events</h2>
                     {dancer.events.map((event, index) =>
-                        <p key={`${index}`}> {event.date} / {event.city} / {event.name} </p>)}
+                        <a href={event.link || '#'} key={index} target="_blank" rel="noopener noreferrer">
+                            <p> {event.date} / {event.city} / {event.name} </p>
+                        </a>
+                    )}
+
                 </div>
 
             </div>
