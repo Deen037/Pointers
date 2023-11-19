@@ -53,7 +53,8 @@ function ProfileDropdown({dancer}) {
                     <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
                         <div className="ul">
                             <p className="nickname">{dancer.username}</p>
-                            <p className="crew">{dancer.crew.map((crew, index) => <span key={`${index}`}>| {crew.name} |</span>)}</p>
+                            <p className="crew">{dancer.crew? dancer.crew.map((crew, index) =>
+                                <span key={`${index}`}>| {crew.name} |</span>): ""}</p>
                             <Link to={`/profile/${dancer.email}`} className="link">
                                 <DropdownRow img={<UserIcon className="icon drop"/>}
                                              text="Profile"/>

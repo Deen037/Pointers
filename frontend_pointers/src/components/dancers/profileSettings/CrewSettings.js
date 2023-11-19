@@ -1,12 +1,12 @@
-import {useSelector} from "react-redux";
 import React, {useEffect, useState} from "react";
 
-function CrewSettings() {
-    const dancer = useSelector(state => state.user.currentUser);
+function CrewSettings({setNewUserSet, newUserSet, dancer}) {
+
     const [allCrews, setAllCrews] = useState([]);
     const [myCrews, setMyCrews] = useState(dancer.crew || []);  // Initialize with dancer.crew or an empty array
     const [unselectedCrews, setUnselectedCrews] = useState([]);
     const [error, setError] = useState(null);
+
     const [newCrew, setNewCrew] = useState({
         name: "",
         city: "",
@@ -14,8 +14,7 @@ function CrewSettings() {
     });
 
     function handleChange(event) {
-        setNewCrew({...newCrew, [event.target.name]: event.target.value})
-        console.log(newCrew);
+         setNewCrew({...newCrew, [event.target.name]: event.target.value})
     }
 
     useEffect(() => {
@@ -37,10 +36,11 @@ function CrewSettings() {
 
     const createCrew = async () => {
         try {
-            const response = await fetch("http://localhost:8080/crews", {
+            const response = await fetch(`http://localhost:8080/crews`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+
                 },
                 body: JSON.stringify(newCrew),
             });
@@ -55,6 +55,8 @@ function CrewSettings() {
                 city: "",
                 country: "",
             });
+            console.log(data)
+
         } catch (error) {
             console.error('Fetch error: ', error);
             setError(error.message);
@@ -69,15 +71,20 @@ function CrewSettings() {
 
     function toggleCrew(crewId) {
         const crew = allCrews.find(crew => crew.id === crewId);
+        let updatedMyCrews;
+
         if (myCrews.some(myCrew => myCrew.id === crew.id)) {
             // Crew is already in myCrews, remove it
-            setMyCrews(myCrews.filter(myCrew => myCrew.id !== crew.id));
+            updatedMyCrews = myCrews.filter(myCrew => myCrew.id !== crew.id);
+            setMyCrews(updatedMyCrews);
             setUnselectedCrews([...unselectedCrews, crew]);
         } else {
             // Crew is not in myCrews, add it
-            setMyCrews([...myCrews, crew]);
+            updatedMyCrews = [...myCrews, crew];
+            setMyCrews(updatedMyCrews);
             setUnselectedCrews(unselectedCrews.filter(unselectedCrew => unselectedCrew.id !== crew.id));
         }
+        setNewUserSet(prevState => ({...prevState, crew: updatedMyCrews}));
     }
 
     return (
