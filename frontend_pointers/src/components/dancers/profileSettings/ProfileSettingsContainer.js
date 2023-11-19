@@ -1,15 +1,19 @@
-import {useState} from "react";
+import React, {useState} from "react";
 import "./../../../styles/ProfileSettings.css";
 import ProfileSettingsForms from "./ProfileSettingsForms";
 import CrewSettings from "./CrewSettings";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {update} from "../../../redux/userSlice";
+import {UserIcon} from "@heroicons/react/outline";
+import {Link} from "react-router-dom";
 
 
 function ProfileSettingsContainer() {
     const dancer = useSelector(state => state.user.currentUser);
     const [newUserSet, setNewUserSet] = useState({});
+    const dispatch = useDispatch();
 
-    function updateProfile(){
+    function updateProfile() {
         fetch(`http://localhost:8080/dancers/update/${dancer.email}`, {
             method: "PATCH",
             headers: {
@@ -19,7 +23,9 @@ function ProfileSettingsContainer() {
         })
             .then((r) => r.json())
             .then((updatedUser) => {
-                console.log("Neser: " + updatedUser);
+                console.log(updatedUser);
+                dispatch(update(updatedUser))
+
             });
     }
 
@@ -38,7 +44,13 @@ function ProfileSettingsContainer() {
                               dancer={dancer}/>
             </div>
             <div className={`done`}>
-                <input className={`button`} type="button" value="Save Changes" onClick={updateProfile}/>
+                <Link to={`/profile/${dancer.email}`} className="link">
+                    <input className={`button`}
+                           type="button"
+                           value="Save Changes"
+                           onClick={updateProfile}/>
+                </Link>
+
             </div>
         </div>
     )

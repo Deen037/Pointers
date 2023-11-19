@@ -26,12 +26,16 @@ const userSlice = createSlice({
         togglePopup(state) {
             state.displayPopup = !state.displayPopup;
         },
+        update(state, action) {
+            state.currentUser = action.payload;
+        },
     },
 });
 
 export const {
     login,
     logout,
-    togglePopup
+    togglePopup,
+    update,
 } = userSlice.actions;
 export default userSlice.reducer;

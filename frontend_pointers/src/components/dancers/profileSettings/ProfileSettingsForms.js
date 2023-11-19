@@ -66,6 +66,7 @@ function ProfileSettingsForms({setNewUserSet, newUserSet, dancer}) {
     );
 
 
+
     return (
         <div className={`settings-form-left`}>
             <form>
