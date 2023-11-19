@@ -6,6 +6,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequiredArgsConstructor
 @CrossOrigin("*")
@@ -21,6 +24,8 @@ public class CrewController {
     @PostMapping("/crews")
     private ResponseEntity<?> saveCrew(@RequestBody Crew crew){
         crewService.save(crew);
-        return ResponseEntity.ok("saved");
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "saved");
+        return ResponseEntity.ok(response);
     }
 }
