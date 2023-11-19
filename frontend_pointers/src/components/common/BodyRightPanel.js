@@ -7,7 +7,7 @@ import MyEvents from "../events/MyEvents";
 import MyEvent from "../events/MyEvent";
 import Timeline from "../../pages/Timeline";
 import {exampleEvent} from "../../assets/data";
-import ProfileSettings from "../dancers/ProfileSettings";
+import ProfileSettingsContainer from "../dancers/profileSettings/ProfileSettingsContainer";
 import {useSelector} from "react-redux";
 import Profile from "../dancers/Profile";
 
@@ -36,7 +36,7 @@ const BodyRightPanel = ({judgePage}) => {
                 />
                 <Route
                     path={`/settings/${dancer.email}`}
-                    element={<ProfileSettings/>}/>
+                    element={<ProfileSettingsContainer/>}/>
                 <Route
                     path={`/profile/${dancer.email}`}
                     element={<Profile/>}/>
