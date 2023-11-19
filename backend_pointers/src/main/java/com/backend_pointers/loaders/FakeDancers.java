@@ -70,10 +70,10 @@ public class FakeDancers implements CommandLineRunner {
         Miro.setCountry("Slovakia");
         Miro.setPassword("xxx");
         Miro.setEmail("miro@gmail.com");
-        Miro.setBirthDate(java.sql.Date.valueOf("1978-08-28"));
+        Miro.setBirthYear(1978);
         Miro.setCity("Hrabušice");
         Miro.setPhone("+421 911 123 456");
-        Miro.setPhoto("https://www.breakdanceprojectutrecht.nl/wp-content/uploads/2019/01/IMG_20190105_153319-1.jpg");
+        Miro.setPhoto("https://i.imgur.com/tyjxiCH.png");
         Miro.setAbout("Miro is a dancer, choreographer, teacher and promoter of breaking.");
         Miro.setFacebook("https://www.facebook.com/miro.olsavsky");
         Miro.setInstagram("https://www.instagram.com/miro_olsavsky/");

@@ -5,7 +5,10 @@ import com.backend_pointers.services.interfaces.DancerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.lang.reflect.Field;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 
@@ -44,6 +47,21 @@ public class DancerServiceImpl implements DancerService{
     @Override
     public Optional<Dancer> findByUsername(String username) {
         return dancerRepo.findByUsername(username);
+    }
+
+    @Override
+    public Dancer update(Dancer foundDancer, Map<String, Object> updates) {
+        for (Map.Entry<String, Object> entry : updates.entrySet()) {
+            try {
+                Field field = Dancer.class.getDeclaredField(entry.getKey());
+                field.setAccessible(true);
+                field.set(foundDancer, entry.getValue());
+            } catch (NoSuchFieldException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+        dancerRepo.save(foundDancer);
+        return foundDancer;
     }
 
 }

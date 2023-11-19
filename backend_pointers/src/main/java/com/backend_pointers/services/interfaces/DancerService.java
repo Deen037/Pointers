@@ -4,6 +4,7 @@ import com.backend_pointers.models.Dancer;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -14,4 +15,6 @@ public interface DancerService {
     Optional<Dancer> findByFirstName(String firstName);
 
     Optional<Dancer> findByUsername(String username);
+
+    Dancer update(Dancer foundDancer, Map<String, Object> updates);
 }

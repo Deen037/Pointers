@@ -3,8 +3,6 @@ package com.backend_pointers.models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -15,7 +13,7 @@ public class DancerDTO {
     private Long id;
     private String firstName;
     private String lastName;
-    private String birthDate;
+    private int birthYear;
     private String username;
     private String city;
     private String country;
@@ -40,7 +38,7 @@ public class DancerDTO {
         this.id = dancer.getId();
         this.firstName = dancer.getFirstName();
         this.lastName = dancer.getLastName();
-        this.birthDate = formatDateToISO(dancer.getBirthDate());
+        this.birthYear = dancer.getBirthYear();
         this.username = dancer.getUsername();
         this.city = dancer.getCity();
         this.country = dancer.getCountry();
@@ -60,10 +58,5 @@ public class DancerDTO {
         this.roles = dancer.getRoles();
         this.crew = dancer.getCrew();
         this.events = dancer.getEvents();
-    }
-
-    public static String formatDateToISO(Date date) {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        return formatter.format(date);
     }
 }

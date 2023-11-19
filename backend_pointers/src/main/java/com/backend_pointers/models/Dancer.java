@@ -21,7 +21,8 @@ public class Dancer{
     private Long id;
     private String firstName;
     private String lastName;
-    private Date birthDate;
+    @Temporal(TemporalType.DATE)
+    private int birthYear;
     private String username;
     private String city;
     private String country;
@@ -69,5 +70,6 @@ public class Dancer{
             inverseJoinColumns = {@JoinColumn(name = "event_id", referencedColumnName = "id")}
     )
     Set<Event> events;
+
 
 }
