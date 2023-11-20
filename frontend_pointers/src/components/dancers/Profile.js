@@ -46,14 +46,18 @@ function Profile() {
             <div className={`profile-body`}>
                 <div className={`profile`}>
                     <div className={`profile__image`}>
-                        <img src="https://i.imgur.com/tyjxiCH.png" alt="profile"/>
+                        {dancer.photo ? <img src={dancer.photo} alt="profile"/> :
+                            <img src="https://i.imgur.com/tyjxiCH.png" alt="profile"/>}
                     </div>
                     <div className={`profile__info`}>
                         <h2>{dancer.username}</h2>
                         <p>{dancer.firstName} {dancer.lastName}</p>
                         {dancer.crew.map((crew, index) =>
                             <p key={`${index}`}> {crew.name} </p>)}
-                        <p>{dancer.country}, {dancer.city}</p>
+
+                        <p>{dancer.city}</p>
+                        <p>{dancer.country}</p>
+                        <p>{dancer.nationality}</p>
                     </div>
                 </div>
                 <div className={`about`}>

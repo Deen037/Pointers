@@ -25,3 +25,4 @@ yarn-error.log*
 sklad 
 
 /backend_pointers/.gradle
+/backend_pointers/build
