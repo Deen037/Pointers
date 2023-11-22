@@ -1,6 +1,6 @@
 # Use the official Gradle image to create a build artifact.
-# https://hub.docker.com/_/gradle
-FROM gradle:8.2.1-jdk8 as builder
+# Use an image with Java 17
+FROM openjdk:17-jdk-alpine as build
 
 # Copy local code to the container image.
 WORKDIR /app
